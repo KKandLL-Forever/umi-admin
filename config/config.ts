@@ -1,14 +1,32 @@
 import { defineConfig } from 'umi';
-import {routes} from './routes'
+import defaultSettings from './defaultSettings';
+import { routes } from './routes';
 
 export default defineConfig({
-  nodeModulesTransform: {
-    type: 'none',
+  hash: true,
+  model: {},
+  antd: {},
+  request: {},
+  initialState: {},
+  mock: {
+    include: ['src/pages/**/_mock.ts'],
+  },
+  dva: {
+    // hmr: true,
   },
   layout: {
-    menuHeaderRender: false,
-    navTheme: false
+    // https://umijs.org/zh-CN/plugins/plugin-layout
+    locale: true,
+    siderWidth: 208,
+    ...defaultSettings,
+  },
+  locale: {
+    // default zh-CN
+    default: 'zh-CN',
+    antd: true,
+    // default true, when it is true, will use `navigator.language` overwrite default
+    baseNavigator: true,
   },
   routes: routes,
-  fastRefresh: {},
+  fastRefresh: true,
 });

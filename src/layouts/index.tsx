@@ -1,12 +1,11 @@
 // @ts-ignore
-import { useOutlet } from 'umi';
+import { Outlet } from 'umi';
 
-const Outlet = useOutlet()
 const Layout = () => {
   return (
     <div>
       <h1>公共layout</h1>
-      {Outlet}
+      <Outlet />
     </div>
   );
 };
